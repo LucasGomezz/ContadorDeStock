@@ -1,0 +1,22 @@
+<div>
+    <input type="text" placeholder="buscar producto...">
+    <div>
+        {{#productos}}
+            <div>
+                <img src="" alt="">
+                <p>{{nombre}}</p>
+                <p>{{stock}}</p>
+                <form action="/home/descontarStock" method="POST">
+                    <input type="hidden" value="{{nombre}}" name="nombre">
+                    <input type="number" name="stock">
+                    <input type="submit" value="comprar">
+                </form>
+            </div>
+        {{/productos}}
+        <form action="/home/probando" method="POST">
+            <input type="hidden" value="{{nombre}}" name="nombre">
+            <input type="submit" value="probar">
+        </form>
+    </div>
+</div>
+//Hacer un href para que vaya a otra vista a ver si anda
