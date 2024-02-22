@@ -17,8 +17,9 @@ include_once('helpers/Session.php');
 class Configuration {
     private $configFile = 'config/config.ini';
 
-    public function __construct($module) {
-        conectar($module, $this->getRouter());
+    public function __construct() {
+        //conectar($module, $this->getRouter());
+
     }
 
 

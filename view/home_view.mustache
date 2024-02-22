@@ -1,22 +1,36 @@
-<div>
-    <input type="text" placeholder="buscar producto...">
+
     <div>
         {{#productos}}
             <div>
-                <img src="" alt="">
+                <img src="{{imagen}}" alt="">
                 <p>{{nombre}}</p>
                 <p>{{stock}}</p>
                 <form action="/home/descontarStock" method="POST">
                     <input type="hidden" value="{{nombre}}" name="nombre">
-                    <input type="number" name="stock">
+                    <input type="number" name="descontarStock">
                     <input type="submit" value="comprar">
                 </form>
+                <form action="/home/sumarStock" method="POST">
+                    <input type="hidden" value="{{nombre}}" name="nombre">
+                    <input type="number" name="sumarStock">
+                    <input type="submit" value="agregar">
+                </form>
+                <form action="/home/eliminarProducto" method="post">
+                    <input type="hidden" value="{{id}}" name="id">
+                    <input type="submit" value="eliminarProducto">
+                </form>
+
             </div>
         {{/productos}}
-        <form action="/home/probando" method="POST">
-            <input type="hidden" value="{{nombre}}" name="nombre">
-            <input type="submit" value="probar">
+    </div>
+
+    <div>
+        <form action="/home/agregarProducto" method="POST">
+            <input type="text" name="nombreDelProducto" placeholder="Nombre del Producto" required>
+            <input type="number" name="cantidadProducto" placeholder="Cantidad en Stock" required>
+            <input type="number" name="precio" required placeholder="Precio">
+            <input type="file" name="imagenProducto">
+            <input type="submit" value="sumarProducto">
         </form>
     </div>
-</div>
-//Hacer un href para que vaya a otra vista a ver si anda
+
